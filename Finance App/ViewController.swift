@@ -36,19 +36,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TBMain.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.font = UIFont(name: "Helvetica", size: 30)
         cell.textLabel?.text = fas[indexPath.row]
         return cell
     }
+     //MARK: Добавить новую категорию которая на стартовом экране
     @IBAction func AddNewCategory(_ sender: Any) {
         ScreenAddNewCAtagory.isHidden = false
         AddNewCategoryOutlet.isHidden = true
-        //        ScreenMainCategory.backgroundColor = .lightGray
-        
-        //        TBMain.backgroundColor = .lightGray
         ScreenAddNewCAtagory.backgroundColor = .white
-        
         filterView.isHidden = false
-        //        filterView.backgroundColor = .lightGray
         filterView.isOpaque = false
         filterView.alpha = 0.3
         
@@ -59,25 +56,52 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         ScreenAddNewCAtagory.isHidden = true
         AddNewCategoryOutlet.isHidden = false
         ScreenMainCategory.backgroundColor = .white
-        
-        
         view.endEditing(true)
-        
-        
     }
+     //MARK: Кнопка чистки поля когда нажимаю добавить категорию
     @IBAction func clearButton(_ sender: Any) {
         TfTwoScreen.text = ""
     }
     func editButtonAddCategory(){
         AddNewCategoryOutlet.layer.cornerRadius = 24
     }
-    
+     //MARK: Заполение массива
     func filing(){
         let tx = TfTwoScreen.text
-        fas.append(tx!)
-        TBMain.reloadData()
+        if ((tx?.isEmpty) != nil){
+            fas.append(tx!)
+            TBMain.reloadData()
+        }
+//        fas.append(tx!)
+//        TBMain.reloadData()
+        
     }
+
+ //MARK: Размер ячейки
+    var selectedIndex = -1
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == selectedIndex {
+            return 354
+        }else {
+            return 115
+        }
+    }
+     //MARK: Нажатие по ячейки
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        TBMain.deselectRow(at: indexPath, animated: true)
+        print(fas[indexPath.row])
+    }
+     //MARK: Удаление ячейки
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            fas.remove(at: indexPath.row)
+            TBMain.deleteRows(at: [indexPath], with: .fade)
+            self.TBMain.reloadData()
+        }else if editingStyle == .insert{
+            self.TBMain.reloadData()
+        }
+    }
+ 
 }
 
