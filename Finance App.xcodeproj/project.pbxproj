@@ -14,6 +14,8 @@
 		D2099D25264871E7004446AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2099D23264871E7004446AE /* Main.storyboard */; };
 		D2099D27264871F0004446AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2099D26264871F0004446AE /* Assets.xcassets */; };
 		D2099D2A264871F0004446AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2099D28264871F0004446AE /* LaunchScreen.storyboard */; };
+		D21AC481264C6F830024984E /* AddNewMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21AC480264C6F830024984E /* AddNewMoneyViewController.swift */; };
+		D21AC485264C71D50024984E /* FuncElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21AC484264C71D50024984E /* FuncElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		D2099D26264871F0004446AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2099D29264871F0004446AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2099D2B264871F0004446AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D21AC480264C6F830024984E /* AddNewMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMoneyViewController.swift; sourceTree = "<group>"; };
+		D21AC484264C71D50024984E /* FuncElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,6 @@
 				928E83ABDAEAC6F3C0411C12 /* Pods-Finance App.debug.xcconfig */,
 				ABD5A2F501FA89A954A9A898 /* Pods-Finance App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,12 +87,22 @@
 				D2099D1D264871E7004446AE /* AppDelegate.swift */,
 				D2099D1F264871E7004446AE /* SceneDelegate.swift */,
 				D2099D21264871E7004446AE /* ViewController.swift */,
+				D21AC47F264C6F360024984E /* FirstScreen */,
 				D2099D23264871E7004446AE /* Main.storyboard */,
 				D2099D26264871F0004446AE /* Assets.xcassets */,
 				D2099D28264871F0004446AE /* LaunchScreen.storyboard */,
 				D2099D2B264871F0004446AE /* Info.plist */,
 			);
 			path = "Finance App";
+			sourceTree = "<group>";
+		};
+		D21AC47F264C6F360024984E /* FirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D21AC480264C6F830024984E /* AddNewMoneyViewController.swift */,
+				D21AC484264C71D50024984E /* FuncElement.swift */,
+			);
+			path = FirstScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D21AC481264C6F830024984E /* AddNewMoneyViewController.swift in Sources */,
+				D21AC485264C71D50024984E /* FuncElement.swift in Sources */,
 				D2099D22264871E7004446AE /* ViewController.swift in Sources */,
 				D2099D1E264871E7004446AE /* AppDelegate.swift in Sources */,
 				D2099D20264871E7004446AE /* SceneDelegate.swift in Sources */,
