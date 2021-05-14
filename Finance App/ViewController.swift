@@ -72,9 +72,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             fas.append(tx!)
             TBMain.reloadData()
         }
-//        fas.append(tx!)
-//        TBMain.reloadData()
-        
     }
 
  //MARK: Размер ячейки

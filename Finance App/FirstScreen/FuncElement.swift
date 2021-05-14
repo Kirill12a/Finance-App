@@ -11,8 +11,11 @@ import UIKit
 
 class UserButtonCjange{
 
-func ChangeSizeButton(button: UIButton){
+    func ChangeSizeButton(button: UIButton, twoButton: UIButton){
     button.layer.cornerRadius = 20
+        twoButton.layer.cornerRadius = 20
     
 }
+    
+   
 }
