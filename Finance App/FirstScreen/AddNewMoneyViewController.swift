@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class AddNewMoneyViewController: UIViewController {
     
     
@@ -41,6 +42,7 @@ class AddNewMoneyViewController: UIViewController {
     @IBAction func firstAddNewIncomeAction(_ sender: Any) {
         TwoViewScreen.isHidden = false
         firstAddNewIncomeOutlet.isHidden = true
+        TEFIETwoScreen.text = ""
 
         
     }
@@ -53,6 +55,7 @@ class AddNewMoneyViewController: UIViewController {
     }
     
     @IBAction func clearArrayAction(_ sender: Any) {
+        TEFIETwoScreen.text = ""
     }
     
     func filing(){
@@ -87,9 +90,21 @@ extension AddNewMoneyViewController: UITableViewDelegate, UITableViewDataSource{
         }else {
             return 115
         }
-    
-    
+   
 }
+ //MARK: Удаление с Table
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            arrayNumbers.remove(at: indexPath.row)
+            let intArray = arrayNumbers.compactMap { Double($0) }
+            let sum = intArray.reduce(0, -)
+            userBalanceImportant.text = "\(sum) P"
+            tableViewBalance.deleteRows(at: [indexPath], with: .fade)
+            self.tableViewBalance.reloadData()
+        }else if editingStyle == .insert{
+            self.tableViewBalance.reloadData()
+        }
+    }
 }
 
 

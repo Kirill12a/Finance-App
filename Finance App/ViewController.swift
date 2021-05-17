@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import Realm
+import RealmSwift
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var fas: [String]=[]
     
@@ -30,6 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         TfTwoScreen.layer.borderWidth = 0
         TfTwoScreen.layer.borderColor = UIColor.white.cgColor
         ButtonTwoScreen.layer.cornerRadius = 24
+     print(Realm.Configuration.defaultConfiguration.fileURL)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fas.count
@@ -48,6 +50,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         filterView.isHidden = false
         filterView.isOpaque = false
         filterView.alpha = 0.3
+        TfTwoScreen.text = ""
+        
         
     }
     @IBAction func ButtonTwoScreenAction(_ sender: Any) {
