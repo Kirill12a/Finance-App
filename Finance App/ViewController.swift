@@ -6,10 +6,11 @@
 //
 
 import UIKit
-import Realm
 import RealmSwift
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var fas: [String]=[]
+    
+    var fas: Results<Item>!
     
     @IBOutlet var ScreenMainCategory: UIView!
     @IBOutlet weak var ScreenAddNewCAtagory: UIView!
@@ -24,6 +25,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let realm = try! Realm()
+        self.fas = realm.objects(Item.self)
+        
         TBMain.delegate = self
         TBMain.dataSource = self
         editButtonAddCategory()
@@ -31,7 +36,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         TfTwoScreen.layer.borderWidth = 0
         TfTwoScreen.layer.borderColor = UIColor.white.cgColor
         ButtonTwoScreen.layer.cornerRadius = 24
-     print(Realm.Configuration.defaultConfiguration.fileURL)
+  print(Realm.Configuration.defaultConfiguration.fileURL)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fas.count
@@ -39,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TBMain.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.font = UIFont(name: "Helvetica", size: 30)
-        cell.textLabel?.text = fas[indexPath.row]
+        cell.textLabel?.text = fas[indexPath.row].category
         return cell
     }
      //MARK: Добавить новую категорию которая на стартовом экране
@@ -73,8 +78,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func filing(){
         let tx = TfTwoScreen.text
         if ((tx?.isEmpty) != nil){
-            fas.append(tx!)
-            TBMain.reloadData()
+//            fas.append(tx!)
+            let item = Item()
+            item.category = TfTwoScreen.text!
+            let realm = try! Realm()
+            try! realm.write{
+                realm.add(item)
+            }
+            self.TBMain.reloadData()
         }
     }
 
@@ -96,8 +107,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
      //MARK: Удаление ячейки
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            fas.remove(at: indexPath.row)
-            TBMain.deleteRows(at: [indexPath], with: .fade)
+//            fas.remove(at: indexPath.row)
+//            TBMain.deleteRows(at: [indexPath], with: .fade)
+//            self.TBMain.reloadData()
+            let realm = try! Realm()
+            let item = self.fas[indexPath.row]
+            try! realm.write{
+                realm.delete(item)
+                self.TBMain.reloadData()
+            }
             self.TBMain.reloadData()
         }else if editingStyle == .insert{
             self.TBMain.reloadData()

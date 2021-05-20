@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,8 @@
 		D2099D2A264871F0004446AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2099D28264871F0004446AE /* LaunchScreen.storyboard */; };
 		D21AC481264C6F830024984E /* AddNewMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21AC480264C6F830024984E /* AddNewMoneyViewController.swift */; };
 		D21AC485264C71D50024984E /* FuncElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21AC484264C71D50024984E /* FuncElement.swift */; };
+		D225809C2656F3F6006F2656 /* ViewControllerForRowAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225809B2656F3F6006F2656 /* ViewControllerForRowAt.swift */; };
+		D23F9B552653012C005D90B1 /* ItemAddNewCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F9B542653012C005D90B1 /* ItemAddNewCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		D2099D2B264871F0004446AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D21AC480264C6F830024984E /* AddNewMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMoneyViewController.swift; sourceTree = "<group>"; };
 		D21AC484264C71D50024984E /* FuncElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncElement.swift; sourceTree = "<group>"; };
+		D225809B2656F3F6006F2656 /* ViewControllerForRowAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerForRowAt.swift; sourceTree = "<group>"; };
+		D23F9B542653012C005D90B1 /* ItemAddNewCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddNewCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,9 @@
 				D2099D1D264871E7004446AE /* AppDelegate.swift */,
 				D2099D1F264871E7004446AE /* SceneDelegate.swift */,
 				D2099D21264871E7004446AE /* ViewController.swift */,
+				D225809B2656F3F6006F2656 /* ViewControllerForRowAt.swift */,
+				D225809A2656F3DA006F2656 /* Realm */,
+				D22580982656F23C006F2656 /* TwoScreen */,
 				D21AC47F264C6F360024984E /* FirstScreen */,
 				D2099D23264871E7004446AE /* Main.storyboard */,
 				D2099D26264871F0004446AE /* Assets.xcassets */,
@@ -103,6 +110,21 @@
 				D21AC484264C71D50024984E /* FuncElement.swift */,
 			);
 			path = FirstScreen;
+			sourceTree = "<group>";
+		};
+		D22580982656F23C006F2656 /* TwoScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TwoScreen;
+			sourceTree = "<group>";
+		};
+		D225809A2656F3DA006F2656 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				D23F9B542653012C005D90B1 /* ItemAddNewCategory.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,8 +244,10 @@
 				D21AC481264C6F830024984E /* AddNewMoneyViewController.swift in Sources */,
 				D21AC485264C71D50024984E /* FuncElement.swift in Sources */,
 				D2099D22264871E7004446AE /* ViewController.swift in Sources */,
+				D23F9B552653012C005D90B1 /* ItemAddNewCategory.swift in Sources */,
 				D2099D1E264871E7004446AE /* AppDelegate.swift in Sources */,
 				D2099D20264871E7004446AE /* SceneDelegate.swift in Sources */,
+				D225809C2656F3F6006F2656 /* ViewControllerForRowAt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
